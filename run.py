@@ -36,10 +36,6 @@ def main(args):
             embeding_fea_size=args.fea)
 
 
-    initial_steps = 20
-    later_steps = 2 
-
-
     total_step = int(1/args.merge_percent)
     for step in range(total_step):
         print('step: ',step)
@@ -57,7 +53,7 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Exploit the Unknown Gradually')
+    parser = argparse.ArgumentParser(description='bottom-up clustering')
     parser.add_argument('-d', '--dataset', type=str, default='mars',
                         choices=datasets.names())
     parser.add_argument('-b', '--batch-size', type=int, default=16)  
@@ -71,8 +67,6 @@ if __name__ == '__main__':
     parser.add_argument('--max_frames', type=int, default=900)
     parser.add_argument('--loss', type=str, default='ExLoss')
     parser.add_argument('-m', '--momentum', type=float, default=0.5)
-    parser.add_argument('-e1', '--epochs1', type=int, default=20)
-    parser.add_argument('-e2', '--epochs2', type=int, default=2)
     parser.add_argument('-s', '--step_size', type=int, default=55)
     parser.add_argument('--size_penalty',type=float, default=0.005)
     parser.add_argument('-mp', '--merge_percent',type=float, default=0.05)
