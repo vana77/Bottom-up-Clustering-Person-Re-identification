@@ -18,15 +18,9 @@ def main(args):
 
     # get all unlabeled data for training
     dataset_all = datasets.create(args.dataset, osp.join(args.data_dir, args.dataset))
-    new_train_data = change_to_unlabel(dataset_all)
+    new_train_data, cluster_id_labels = change_to_unlabel(dataset_all)
 
-    label = []
-    for idx, data in enumerate(new_train_data):
-        data[3] = idx # data[3] is the label of the data array
-        label.append(data[3])  # index
-
-    new_train_data = new_train_data
-    num_train_ids = len(np.unique(np.array(label)))
+    num_train_ids = len(np.unique(np.array(cluster_id_labels)))
     nums_to_merge = int(num_train_ids * args.merge_percent)
 
     BuMain = Bottom_up(model_name=args.arch, batch_size=args.batch_size, 
@@ -36,19 +30,17 @@ def main(args):
             embeding_fea_size=args.fea)
 
 
-    total_step = int(1/args.merge_percent)
-    for step in range(total_step):
+    for step in range(int(1/args.merge_percent)-1):
         print('step: ',step)
 
         BuMain.train(new_train_data, step, loss=args.loss) 
 
         BuMain.evaluate(dataset_all.query, dataset_all.gallery)
 
-        if step < total_step - 1:
-            # get new train data for the next iteration
-            print('----------------------------------------bottom-up clustering------------------------------------------------')
-            label, new_train_data = BuMain.get_new_train_data(label, nums_to_merge, size_penalty=args.size_penalty)
-            print('\n\n')
+        # get new train data for the next iteration
+        print('----------------------------------------bottom-up clustering------------------------------------------------')
+        cluster_id_labels, new_train_data = BuMain.get_new_train_data(cluster_id_labels, nums_to_merge, size_penalty=args.size_penalty)
+        print('\n\n')
 
 
 

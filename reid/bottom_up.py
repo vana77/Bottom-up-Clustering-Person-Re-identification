@@ -274,12 +274,18 @@ class Bottom_up():
 
 def change_to_unlabel(dataset):
     # generate unlabeled set
-    unlabel_dataset = []
+    trimmed_dataset = []
     init_videoid = int(dataset.train[0][3])
     for (imgs, pid, camid, videoid) in dataset.train:
         videoid = int(videoid) - init_videoid
         if videoid < 0:
             print(videoid, 'RANGE ERROR')
         assert videoid >= 0
-        unlabel_dataset.append([imgs, pid, camid, videoid])
-    return unlabel_dataset
+        trimmed_dataset.append([imgs, pid, camid, videoid])
+
+    index_labels = []
+    for idx, data in enumerate(trimmed_dataset):
+        data[3] = idx # data[3] is the label of the data array
+        index_labels.append(data[3])  # index
+    
+    return trimmed_dataset, index_labels
