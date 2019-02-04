@@ -6,7 +6,7 @@ This code is based on the [Open-ReID](https://github.com/Cysu/open-reid) library
 ## Preparation
 ### Dependencies
 - Python 3.6
-- PyTorch (version >= 0.2.0)
+- PyTorch (version >= 0.4.1)
 - h5py, scikit-learn, metric-learn, tqdm
 
 ### Download datasets 
