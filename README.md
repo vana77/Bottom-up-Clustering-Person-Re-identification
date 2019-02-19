@@ -21,10 +21,6 @@ This code is based on the [Open-ReID](https://github.com/Cysu/open-reid) library
 ```shell
 sh ./run.sh
 ```
-`--init_epochs` the number of init epochs.
-
-`--later_epochs` the number of init epochs (set to 2 for image-based datasets, 5 for video-based datasets).
-
 `--size_penalty` parameter lambda to balance the diversity regularization term.
 
 `--merge_percent` percent of data to merge at each iteration.
