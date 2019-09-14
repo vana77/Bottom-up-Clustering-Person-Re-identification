@@ -4,7 +4,7 @@ dataset=market1501
 #dataset=DukeMTMC-VideoReID
 
 batchSize=16
-size_penalty=0.005
+size_penalty=0.003
 merge_percent=0.05
 
 logs=logs/$dataset
