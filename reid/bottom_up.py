@@ -266,8 +266,8 @@ class Bottom_up():
 
         # change the criterion classifer
         self.criterion = ExLoss(self.embeding_fea_size, num_train_ids, t=10).cuda()
-        new_classifier = fc_avg.astype(np.float32)
-        self.criterion.V = torch.from_numpy(new_classifier).cuda()
+        #new_classifier = fc_avg.astype(np.float32)
+        #self.criterion.V = torch.from_numpy(new_classifier).cuda()
 
         return labels, new_train_data
 
