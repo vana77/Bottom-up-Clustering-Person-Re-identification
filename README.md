@@ -41,13 +41,15 @@ sh ./run.sh
 ## Citation
 
 Please cite the following paper in your publications if it helps your research:
-    
-    @inproceedings{lin2019aBottom,
-        title     = {A Bottom-Up Clustering Approach to Unsupervised Person Re-identification},
-        author    = {Lin, Yutian and Dong, Xuanyi and Zheng, Liang and Yan, Yan and Yang, Yi},
-        booktitle = {AAAI Conference on Artificial Intelligence (AAAI)},
-        year      = {2019}
-    }
+
+    @inproceedings{lin2019bottom,
+        title={A bottom-up clustering approach to unsupervised person re-identification},
+        author={Lin, Yutian and Dong, Xuanyi and Zheng, Liang and Yan, Yan and Yang, Yi},
+        booktitle={AAAI Conference on Artificial Intelligence (AAAI)},
+        volume={2},
+        pages={1--8},
+        year={2019}
+        }
 
 
 
