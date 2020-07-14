@@ -37,6 +37,7 @@ sh ./run.sh
 `--size_penalty` parameter lambda to balance the diversity regularization term.
 
 `--merge_percent` percent of data to merge at each iteration.
+
 We utilize 1 GTX-1080TI GPU for training on image-based datasets and 2 GTX-1080TI GPUs for training on video-based datasets.
 
 ## Citation
